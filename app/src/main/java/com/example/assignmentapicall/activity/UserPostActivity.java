@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.assignmentapicall.constants.Constants;
 import com.example.assignmentapicall.R;
@@ -24,15 +26,21 @@ public class UserPostActivity extends AppCompatActivity {
     private RecyclerView userPost_rv;
     private UserPostRecyclerAdapter postRecyclerAdapter;
     private ArrayList<UserDetailPost> userDetailPostsArraList;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_post);
+        progressBar=findViewById(R.id.pb);
         retrofitDataFetch(getIntent().getStringExtra(Constants.FRAGMENT_DATA));
 
-
     }
+
+    /**
+     * this methos is fetching the post of the user id has been passed as reference.
+     * @param userId
+     */
     private void retrofitDataFetch(String userId){
 
         Retrofit mRetrofit=new Retrofit.Builder()
@@ -48,21 +56,27 @@ public class UserPostActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<ArrayList<UserDetailPost>> call, Response<ArrayList<UserDetailPost>> response) {
+
                 userDetailPostsArraList=response.body();
+
                 Log.d("yy", "onResponse: "+userDetailPostsArraList.get(0).getPost());
                 init();
-
             }
             @Override
             public void onFailure(Call<ArrayList<UserDetailPost>> call, Throwable t) {
             }
         });
     }
+
+    /**
+     * initializing the reference of the views in this activity.
+     */
     private void init(){
         userPost_rv=findViewById(R.id.userPost_rv);
         userPost_rv.setLayoutManager(new LinearLayoutManager(UserPostActivity.this));
         postRecyclerAdapter=new UserPostRecyclerAdapter(userDetailPostsArraList);
         userPost_rv.setAdapter(postRecyclerAdapter);
+        progressBar.setVisibility(View.GONE);
 
     }
 }

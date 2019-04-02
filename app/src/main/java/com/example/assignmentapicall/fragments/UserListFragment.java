@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.example.assignmentapicall.Interface.CommunicationInterface;
 import com.example.assignmentapicall.R;
@@ -32,9 +32,10 @@ public class UserListFragment extends Fragment {
     //private UserDetail userDetail;
     private View view;
     private Context mContext;
-    private RecyclerView mRecyclerView;
+    private RecyclerView mUserRecycler;
     private AdapterUserList mAdapterUserList;
     private ArrayList<UserDetail> mUserArrayList;
+    private ProgressBar progressBar;
    // private Button btn_post;
 
 
@@ -58,8 +59,8 @@ public class UserListFragment extends Fragment {
         // Inflate the layout for this fragment
 
         view= inflater.inflate(R.layout.fragment_user_list, container, false);
+        progressBar=view.findViewById(R.id.pvList);
         retrofitDataFetch();
-
         return view;
     }
 
@@ -78,16 +79,17 @@ public class UserListFragment extends Fragment {
      * on click is being performed in recycler item.
      */
     private void init(){
-       mRecyclerView = view.findViewById(R.id.rv_user_list);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+       mUserRecycler = view.findViewById(R.id.rv_user_list);
+        mUserRecycler.setLayoutManager(new LinearLayoutManager(mContext));
         mAdapterUserList = new AdapterUserList(mUserArrayList);
-        mRecyclerView.setAdapter(mAdapterUserList);
+        mUserRecycler.setAdapter(mAdapterUserList);
         mAdapterUserList.setOnClickListener(new AdapterUserList.OnItemClickListener() {
             @Override
             public void onItemCLick(int position) {
                 onClickRecycle(position);
             }
         });
+        progressBar.setVisibility(View.GONE);
 
     }
 

@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.assignmentapicall.R;
@@ -64,8 +63,8 @@ public class UserDataFragment extends Fragment {
      * initializing all views here .
      */
     private void init(){
-        tv_rollNum =view.findViewById(R.id.et_rollNum);
-        tv_name =view.findViewById(R.id.et_name);
+        tv_rollNum =view.findViewById(R.id.tv_rollNum);
+        tv_name =view.findViewById(R.id.tv_name);
 
 
     }

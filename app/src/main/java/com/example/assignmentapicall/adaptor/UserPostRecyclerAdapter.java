@@ -15,11 +15,16 @@ import java.util.ArrayList;
 
 public class UserPostRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<UserDetailPost> userDetailPostsArrayList;
-
     public UserPostRecyclerAdapter(ArrayList<UserDetailPost> userDetailPostsArrayList) {
         this.userDetailPostsArrayList = userDetailPostsArrayList;
     }
 
+    /**
+     * in this method layout is being set in the each item .
+     * @param viewGroup
+     * @param i
+     * @return
+     */
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -28,11 +33,16 @@ public class UserPostRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
         return userPostHolder;
     }
 
+    /**
+     * in this method data is set into the respected views.
+     * @param viewHolder
+     * @param i
+     */
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         int position1=viewHolder.getAdapterPosition();
         UserDetailPost userDetailPost= userDetailPostsArrayList.get(position1);
-               int userId=userDetailPost.getUserId();
+        int userId=userDetailPost.getUserId();
         Log.d("id", "onBindViewHolder: "+userDetailPost.getPost());
         int id=userDetailPost.getId();
         String title=userDetailPost.getTitle();
@@ -44,6 +54,10 @@ public class UserPostRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     }
 
+    /**
+     * recycler will make items till size of the list.
+     * @return 0 or size of the list.
+     */
     @Override
     public int getItemCount() {
         if(userDetailPostsArrayList !=null) {

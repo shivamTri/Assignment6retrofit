@@ -22,7 +22,7 @@
                 android:layout_centerHorizontal="true"
                 android:id="@+id/iv_data_fragment"/>
             <TextView
-                android:id="@+id/et_name"
+                android:id="@+id/tv_name"
                 android:layout_below="@+id/iv_data_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,10 +32,10 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/et_rollNum"
+                android:id="@+id/tv_rollNum"
                 android:layout_width="match_parent"
                 android:padding="10dp"
-                android:layout_below="@+id/et_name"
+                android:layout_below="@+id/tv_name"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textColor="@android:color/black"

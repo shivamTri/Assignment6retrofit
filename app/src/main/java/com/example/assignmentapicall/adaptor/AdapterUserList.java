@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.assignmentapicall.R;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 public class AdapterUserList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<UserDetail> mUserArrayList;
     private OnItemClickListener mListener;
+    private ProgressBar progressBar;
 
 
     public interface OnItemClickListener{
@@ -57,6 +59,7 @@ public class AdapterUserList extends RecyclerView.Adapter<RecyclerView.ViewHolde
      * this method counts the size of arrayList and will iterate acccording to the size.
      */
     public int getItemCount(){
+
         return mUserArrayList.size();
     }
 
