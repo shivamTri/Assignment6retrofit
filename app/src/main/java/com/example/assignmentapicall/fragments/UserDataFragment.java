@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.assignmentapicall.R;
 import com.example.assignmentapicall.activity.UserPostActivity;
@@ -22,7 +23,6 @@ public class UserDataFragment extends Fragment {
     private TextView tv_rollNum, tv_name;
     private Button btn_post;
     private UserDetail userDetails;
-
     public UserDataFragment() {
         // Required empty public constructor
     }
@@ -51,9 +51,16 @@ public class UserDataFragment extends Fragment {
         btn_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(mContext, UserPostActivity.class);
-                intent.putExtra(Constants.FRAGMENT_DATA, tv_rollNum.getText().toString());
-                startActivity(intent);
+                if(tv_name.getText().toString().equals("")&&tv_rollNum.getText().toString().equals("")){
+                    Toast.makeText(mContext,"Select at least one user",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Intent intent=new Intent(mContext, UserPostActivity.class);
+                    intent.putExtra(Constants.FRAGMENT_DATA, tv_rollNum.getText().toString());
+                    startActivity(intent);
+
+                }
+
             }
         });
         return view;

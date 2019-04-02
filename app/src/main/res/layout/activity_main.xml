@@ -8,13 +8,11 @@
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
-
   <fragment
       android:layout_width="match_parent"
       android:name="com.example.assignmentapicall.fragments.UserListFragment"
       android:layout_weight="0.5"
       android:layout_height="@dimen/_0dp"
-
       android:id="@+id/ll_list_fragment"/>
   <View
       android:layout_width="match_parent"
@@ -27,7 +25,6 @@
         android:name="com.example.assignmentapicall.fragments.UserDataFragment"
         android:layout_weight="0.5"
         android:layout_height="@dimen/_0dp"
-
         android:id="@+id/ll_data_fragment"/>
 
 </LinearLayout>

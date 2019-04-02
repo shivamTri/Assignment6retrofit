@@ -2,4 +2,7 @@
 <resources>
     <dimen name="_0dp">0dp</dimen>
     <dimen name="_10dp">10dp</dimen>
+    <dimen name="_dp">10dp</dimen>
+    <dimen name="_24sp">24sp</dimen>
+    <dimen name="_20dp">20dp</dimen>
 </resources>

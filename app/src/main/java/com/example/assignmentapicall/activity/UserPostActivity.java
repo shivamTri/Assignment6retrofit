@@ -33,6 +33,7 @@ public class UserPostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_post);
         progressBar=findViewById(R.id.pb);
+
         retrofitDataFetch(getIntent().getStringExtra(Constants.FRAGMENT_DATA));
 
     }
@@ -58,9 +59,10 @@ public class UserPostActivity extends AppCompatActivity {
             public void onResponse(Call<ArrayList<UserDetailPost>> call, Response<ArrayList<UserDetailPost>> response) {
 
                 userDetailPostsArraList=response.body();
-
-                Log.d("yy", "onResponse: "+userDetailPostsArraList.get(0).getPost());
                 init();
+
+
+
             }
             @Override
             public void onFailure(Call<ArrayList<UserDetailPost>> call, Throwable t) {
