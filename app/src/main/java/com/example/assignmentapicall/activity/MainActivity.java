@@ -25,13 +25,10 @@ public class MainActivity extends AppCompatActivity  implements CommunicationInt
             AlertDialog mAlertDialog=buildDialog(MainActivity.this).create();
             mAlertDialog.setCanceledOnTouchOutside(false);
             mAlertDialog.show();
-
-
         }
         else {
             setContentView(R.layout.activity_main);
-
-            Toast.makeText(MainActivity.this,"Welcome", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,getString(R.string.netwrok_available), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -60,11 +57,11 @@ public class MainActivity extends AppCompatActivity  implements CommunicationInt
     public AlertDialog.Builder buildDialog(Context c) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(c);
-        builder.setTitle("No Internet Connection");
+        builder.setTitle(R.string.no_internet);
 
-        builder.setMessage("You need to have Mobile Data or wifi to access this. Press ok to Exit");
+        builder.setMessage(R.string.alert_message_internet);
 
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.alert_ok, new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {

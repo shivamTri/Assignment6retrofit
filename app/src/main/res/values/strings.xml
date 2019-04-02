@@ -5,4 +5,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name">Name</string>
     <string name="id">id</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="alert_message_internet">You need to have Mobile Data or wifi to access this. Press ok to Exit</string>
+    <string name="alert_ok">Ok</string>
+    <string name="netwrok_available">Network Available</string>
 </resources>
